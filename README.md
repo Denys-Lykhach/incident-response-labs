@@ -27,9 +27,12 @@ hydra -l administrator -P rockyou.txt rdp://\<windows\_ip>
 
 <figure><img src="media/0bbbc271f55e9625d78ae3142b9e740bfa4c08c2.png" alt=""><figcaption></figcaption></figure>
 
-* **Detection:**
-  * **Event Viewer:** Security logs → Event ID 4625 (Failed logon attempts).
-  * **Sysmon:** Repeated suspicious connections from a single IP address.
+*   **Detection:**
+
+    * **Event Viewer:** Security logs → Event ID 4625 (Failed logon attempts).
+    * **Sysmon:** Repeated suspicious connections from a single IP address.
+
+    <figure><img src=".gitbook/assets/Group 1, Grouped object" alt=""><figcaption></figcaption></figure>
 * **Response:**
   * Block the attacker's IP address.
 
