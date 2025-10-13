@@ -67,12 +67,12 @@ Where-Object { $_.Message -match $ip } | Select-Object TimeCreated, @{Name='Mess
 <figure><img src="media/0c5b424c6c631b81f6f633e65cfba2e30f3bec42.png" alt=""><figcaption></figcaption></figure>
 
 * **Detection:**
-* **Event ID 4720** --- a user account was created (shows new\_user).
-* **Event ID 4732** --- a member was added to the Administrators group (shows new\_user).
+* **Event ID 4720** - a user account was created (shows new\_user).
+* **Event ID 4732** - a member was added to the Administrators group (shows new\_user).
 
 <div data-full-width="true"><figure><img src=".gitbook/assets/Group 1, Grouped object (1)" alt=""><figcaption></figcaption></figure></div>
 
-* **Event ID 4672** --- special privileges assigned to a logon (evidence of admin session).
+* **Event ID 4672** - special privileges assigned to a logon (evidence of admin session).
 * **Response:**
   * Disable the account: net user new\_user /active:no
 
@@ -100,11 +100,14 @@ Where-Object { $_.Message -match $ip } | Select-Object TimeCreated, @{Name='Mess
 
     * **Autoruns:** Displays a new suspicious startup item.
 
+    Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run' | Format-List \*\
+    Get-ItemProperty -Path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run' | Format-List \*
+
 
 
     <figure><img src=".gitbook/assets/Group 1, Grouped object (4)" alt=""><figcaption></figcaption></figure>
 * **Response:**
-  * Remove malicious registry entry and executable.
+  * Remove the malicious registry entry and executable.
 
 <figure><img src="media/12846f21b6b1a9089f5330c6a4688ae7a774f1c7.png" alt=""><figcaption></figcaption></figure>
 
@@ -141,12 +144,7 @@ Where-Object { $_.Message -match $ip } | Select-Object TimeCreated, @{Name='Mess
 
 hydra -l root -P rockyou.txt ssh://\<linux\_ip>
 
-\
-
-
 <figure><img src="media/c0523d37395353389047845a081887d356823545.png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="media/6306c63a8221c428e5421a047c17101749a6ab3b.png" alt=""><figcaption></figcaption></figure>
 
 *   **Detection:**
 
@@ -156,11 +154,17 @@ hydra -l root -P rockyou.txt ssh://\<linux\_ip>
 
     <figure><img src=".gitbook/assets/Group 1, Grouped object (5)" alt=""><figcaption></figcaption></figure>
 * **Response:**
-  * Block attacker's IP via firewall:
-
-sudo ufw deny from \<attacker\_ip>
+  * Block the attacker's IP via the firewall and kill the related process:
 
 <figure><img src="media/88e679a222fce0acb4d7d5a1e7f2d933f9928faf.png" alt=""><figcaption></figcaption></figure>
+
+Lock the compromised account (disable password login).
+
+Expire the account immediately.
+
+Remove the user from sudo/admin group.
+
+Terminate all processes owned by the user.
 
 <figure><img src="media/0480bf47607720779ca14b019511f8085367532a.png" alt=""><figcaption></figcaption></figure>
 
