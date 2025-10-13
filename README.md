@@ -1,4 +1,4 @@
-# Incident Response Lab Report
+# Incident Response Lab: Windows & Linux Attack Detection
 
 ## **1. General Information**
 
