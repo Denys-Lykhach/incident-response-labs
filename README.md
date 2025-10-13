@@ -15,7 +15,7 @@ This lab project demonstrates common attacker behaviours (brute-force, privilege
 
 ## **2. Attack Scenarios**
 
-### **🔹 Windows Attack #1: Brute-force RDP Login**
+### **Windows Attack #1: Brute-force RDP Login**
 
 <figure><img src="media/fe78c5a86b3c26cc159b1a6d8049671646b971bd.png" alt=""><figcaption></figcaption></figure>
 
@@ -59,7 +59,7 @@ Where-Object { $_.Message -match $ip } | Select-Object TimeCreated, @{Name='Mess
 
 <figure><img src="media/e7cf31e1e922e237afd295586f7a318fb230ad85.png" alt=""><figcaption></figcaption></figure>
 
-### **🔹 Windows Attack #2: Privilege Escalation**
+### **Windows Attack #2: Privilege Escalation**
 
 * **Attack Simulation:**
   * Create a local user and add it to the Administrators group
@@ -89,7 +89,7 @@ Where-Object { $_.Message -match $ip } | Select-Object TimeCreated, @{Name='Mess
 
 * Hardened account management (MFA for privileged accounts, restrict who can add admins).
 
-### **🔹 Windows Attack #3: Malicious Persistence**
+### **Windows Attack #3: Malicious Persistence**
 
 * **Attack Simulation:**
   * Add a fake executable to Windows Registry Run key or Task Scheduler for persistence.
@@ -132,7 +132,7 @@ Where-Object { $_.Message -match $ip } | Select-Object TimeCreated, @{Name='Mess
 
 ***
 
-### **🔹 Linux Attack #1: Brute-force SSH Login**
+### **Linux Attack #1: Brute-force SSH Login**
 
 <figure><img src="media/cb88d5a89e52c0bdbaaf28e4a74a3648d180a0e2.png" alt=""><figcaption></figcaption></figure>
 
@@ -177,7 +177,7 @@ sudo ufw deny from \<attacker\_ip>
 
 <figure><img src="media/2e3eb25ee53932a0268b1048ad19054348d6814f.png" alt=""><figcaption></figcaption></figure>
 
-### **🔹 Linux Attack #2: Privilege Escalation**
+### **Linux Attack #2: Privilege Escalation**
 
 * **Attack Simulation:**
   * Local Privilege Escalation: a program was compiled, made root-owned with the SUID bit, and a NOPASSWD sudo entry was added, allowing a root shell to be obtained.
@@ -207,7 +207,7 @@ sudo ufw deny from \<attacker\_ip>
 
 <figure><img src="media/936e6b5cb727550353713fa4b0de0a18bc4e4d1f.png" alt=""><figcaption></figcaption></figure>
 
-### **🔹 Linux Attack #3: Malicious Cronjob Persistence**
+### **Linux Attack #3: Malicious Cronjob Persistence**
 
 * **Attack Simulation:**
   * Add a malicious cronjob:
