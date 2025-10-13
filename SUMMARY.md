@@ -1,3 +1,3 @@
 # Table of contents
 
-* [Incident Response Lab Report](README.md)
+* [Incident Response Lab: Windows & Linux Attack Detection](README.md)
